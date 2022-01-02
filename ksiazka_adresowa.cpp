@@ -1,20 +1,34 @@
 #include "ksiazka_adresowa.h"
 
 
-void KsiazkaAdresowa::rejestracjaUzytkownika(){
+void KsiazkaAdresowa::rejestracjaUzytkownika()
+{
 
-uzytkownikMenedzer.rejestracjaUzytkownika();
+    uzytkownikMenedzer.rejestracjaUzytkownika();
 
 }
 
-void KsiazkaAdresowa::wypiszWszystkichUzytkownikow(){
+void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
+{
 
-uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
+    uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
 }
 
+int KsiazkaAdresowa::logowanieUzytkownika()
+{
 
+    uzytkownikMenedzer.logowanieUzytkownika();
+}
 
+int KsiazkaAdresowa::wylogowanieUzytkownika()
+{
+    uzytkownikMenedzer.wylogowanieUzytkownika();
+}
 
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
+{
+    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
+}
 
 
 

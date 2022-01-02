@@ -13,10 +13,13 @@ UzytkownikMenedzer uzytkownikMenedzer;
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer (nazwaPlikuZUzytkownikami){
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
+        //adresatMenedzer.wczytajAdresatowZPliku();
     };
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-
+    int logowanieUzytkownika();
+    int wylogowanieUzytkownika();
+    void zmianaHaslaZalogowanegoUzytkownika();
 
 };
 #endif
