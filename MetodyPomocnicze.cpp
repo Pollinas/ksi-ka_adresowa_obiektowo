@@ -6,5 +6,14 @@ string MetodyPomocnicze::konwerjsaIntNaString(int liczba)
     ss << liczba;
     string str = ss.str();
     return str;
+
 }
+
+string MetodyPomocnicze::wczytajLinie()
+{
+    string wejscie = "";
+    getline(cin, wejscie);
+    return wejscie;
+}
+
 
