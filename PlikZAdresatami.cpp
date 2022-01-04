@@ -32,13 +32,13 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
 {
     string liniaZDanymiAdresata = "";
 
-    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.id) + '|';
-    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.idUzytkownika) + '|';
-    liniaZDanymiAdresata += adresat.imie + '|';
-    liniaZDanymiAdresata += adresat.nazwisko + '|';
-    liniaZDanymiAdresata += adresat.numerTelefonu + '|';
-    liniaZDanymiAdresata += adresat.email + '|';
-    liniaZDanymiAdresata += adresat.adres + '|';
+    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.pobierzId()) + '|';
+    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.pobierzIdUzytkownika()) + '|';
+    liniaZDanymiAdresata += adresat.pobierzImie() + '|';
+    liniaZDanymiAdresata += adresat.pobierzNazwisko() + '|';
+    liniaZDanymiAdresata += adresat.pobierzNumerTelefonu() + '|';
+    liniaZDanymiAdresata += adresat.pobierzEmail() + '|';
+    liniaZDanymiAdresata += adresat.pobierzAdres() + '|';
 
     return liniaZDanymiAdresata;
 }
@@ -122,25 +122,25 @@ Adresat PlikZAdresatami:: pobierzDaneAdresata(string daneAdresataOddzielonePiono
             switch(numerPojedynczejDanejAdresata)
             {
             case 1:
-                adresat.id = atoi(pojedynczaDanaAdresata.c_str());
+                adresat.ustawId(atoi(pojedynczaDanaAdresata.c_str()));
                 break;
             case 2:
-                adresat.idUzytkownika = atoi(pojedynczaDanaAdresata.c_str());
+                adresat.ustawIdUzytkownika(atoi(pojedynczaDanaAdresata.c_str()));
                 break;
             case 3:
-                adresat.imie = pojedynczaDanaAdresata;
+                adresat.ustawImie(pojedynczaDanaAdresata);
                 break;
             case 4:
-                adresat.nazwisko = pojedynczaDanaAdresata;
+                adresat.ustawNazwisko(pojedynczaDanaAdresata);
                 break;
             case 5:
-                adresat.numerTelefonu = pojedynczaDanaAdresata;
+                adresat.ustawNumerTelefonu(pojedynczaDanaAdresata);
                 break;
             case 6:
-                adresat.email = pojedynczaDanaAdresata;
+                adresat.ustawEmail(pojedynczaDanaAdresata);
                 break;
             case 7:
-                adresat.adres = pojedynczaDanaAdresata;
+                adresat.ustawAdres(pojedynczaDanaAdresata);
                 break;
             }
             pojedynczaDanaAdresata = "";
