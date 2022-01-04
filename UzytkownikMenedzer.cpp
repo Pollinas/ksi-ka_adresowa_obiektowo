@@ -90,11 +90,11 @@ int UzytkownikMenedzer::logowanieUzytkownika() {
 
     Uzytkownik uzytkownik;
 
-    //string login = "";
+    string login = "";
     string haslo = "";
 
     cout << endl << "Podaj login: ";
-    string login = MetodyPomocnicze::wczytajLinie();
+    login = MetodyPomocnicze::wczytajLinie();
 
 
     for (int i =0; i<uzytkownicy.size(); i++)
