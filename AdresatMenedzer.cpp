@@ -1,25 +1,33 @@
 #include "AdresatMenedzer.h"
 
-int AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)
+void AdresatMenedzer::dodajAdresata()
 {
     Adresat adresat;
 
     system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
+    adresat = podajDaneNowegoAdresata();
 
     adresaci.push_back(adresat);
-    plikZAdresatami.dopiszAdresataDoPliku(adresat);
+   if(plikZAdresatami.dopiszAdresataDoPliku(adresat))
+   {
+       cout << "Nowy adresat zostal dodany" << endl;
+   }
+   else
+   {
+       cout << "Blad. Nie udalo sie dodac nowego adresata do pliku." << endl;
+       system("pause");
+   }
 
-    return idOstatniegoAdresata;
+
 }
 
-Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika)
+Adresat AdresatMenedzer::podajDaneNowegoAdresata()
 {
     Adresat adresat;
 
-    adresat.ustawId(++idOstatniegoAdresata);
-    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
+    adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata() + 1);
+    adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
     adresat.ustawImie(MetodyPomocnicze::wczytajLinie());
@@ -39,7 +47,7 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika)
     return adresat;
 }
 
-void AdresatMenedzer::wyswietlWszystkichAdresatowZalogowanegoUzytkownika(int idZalogowanegoUzytkownika)
+void AdresatMenedzer::wyswietlWszystkichAdresatow()
 {
 
     system("cls");
@@ -50,7 +58,7 @@ void AdresatMenedzer::wyswietlWszystkichAdresatowZalogowanegoUzytkownika(int idZ
         for (int i =0; i<adresaci.size(); i++)
         {
 
-            if (adresaci[i].pobierzIdUzytkownika() == idZalogowanegoUzytkownika)
+            if (adresaci[i].pobierzIdUzytkownika() == ID_ZALOGOWANEGO_UZYTKOWNIKA)
             {
                 wyswietlDaneAdresata(adresaci[i]);
                 cout << endl;
@@ -75,7 +83,4 @@ void AdresatMenedzer::wyswietlWszystkichAdresatowZalogowanegoUzytkownika(int idZ
         cout << "Adres:              " << adresat.pobierzAdres() << endl;
     }
 
-    int AdresatMenedzer::wczytajAdresatowZPliku()
-    {
-        idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZPliku(adresaci);
-    }
+

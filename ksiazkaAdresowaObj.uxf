@@ -86,7 +86,6 @@
 - czyIstniejeLogin() : bool
 + rejestracjaUzytkownika() : void
 + wypiszWszystkichUzytkownikow() : void
-+ wczytajUzytkownikowZPliku() : void
 + logowanieUzytkownika() : integer
 + wylogowanieUzytkownika() : integer
 + zmianaHaslaZalogowanegoUzytkownika() : void
@@ -105,7 +104,7 @@
     </coordinates>
     <panel_attributes>PlikZUzytkownikami
 -
-- nazwaPlikuZUzytkownikami : constant string
+- NAZWA_PLIKU_Z_UZYTKOWNIKAMI : string
 --
 + PlikZUzytkownikami()
 - czyPlikJestPusty(): bool
@@ -162,7 +161,7 @@
     </coordinates>
     <panel_attributes>PlikZAdresatami
 -
-- nazwaPlikuZAdresatami : constant string
+- NAZWA_PLIKU_Z_ADRESATAMI :  string
 --
 + PlikZAdresatami()
 - pobierzDaneAdresata() : Adresat
@@ -193,7 +192,7 @@
 + dodajAdresata() : integer
 + wyswietlWszystkichAdresatowZalogowanegoUzytkownika() : void
 + wyswietlDaneAdresata() : void
-+ wczytajAdresatowZPliku() : integer</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
