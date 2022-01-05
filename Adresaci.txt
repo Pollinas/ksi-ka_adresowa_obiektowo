@@ -1,0 +1,2 @@
+1|1|Paula|J|00077|pajka@o2.pl|camperVan|
+2|1|Kasia|S|7788|kasia.szylin@gmail.com|Bialowieska Polska|
