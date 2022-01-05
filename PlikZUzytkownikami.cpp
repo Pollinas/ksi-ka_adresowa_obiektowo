@@ -8,11 +8,11 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
     fstream plikTekstowy;
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::app);
 
-    if (plikTekstowy.good() == true)
+    if (plikTekstowy.good())
     {
         liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
 
-        if (czyPlikJestPusty() == true)
+        if (czyPlikJestPusty(plikTekstowy))
         {
             plikTekstowy << liniaZDanymiUzytkownika;
         }
@@ -26,14 +26,10 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
     plikTekstowy.close();
 }
 
-bool PlikZUzytkownikami::czyPlikJestPusty()
+bool PlikZUzytkownikami::czyPlikJestPusty(fstream &plikTekstowy)
 {
-    fstream plikTekstowy;
     plikTekstowy.seekg(0, ios::end);
-    if (plikTekstowy.tellg() == 0)
-        return true;
-    else
-        return false;
+    return plikTekstowy.tellg() == 0;
 }
 
 string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik)
