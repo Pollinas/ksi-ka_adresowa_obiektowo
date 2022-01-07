@@ -1,2 +1,4 @@
-1|1|Paula|J|00077|pajka@o2.pl|camperVan|
-2|1|Kasia|S|7788|kasia.szylin@gmail.com|Bialowieska Polska|
+1|1|Pola|Lola|000777|pola.lola@gmail.com|Lolandia 88|
+2|1|Kacek|Wolek|990887|Janowiec|Janowiec|
+3|1|Kasienka|Malenka|77666555|lolo@gmail.com|Bialowieska |
+4|1|Lukasz|Szylin|777665432|lukasz.szylin@gmail.com|Bialowieska 141|
