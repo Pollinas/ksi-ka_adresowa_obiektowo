@@ -29,8 +29,13 @@ public:
     };
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
-
-
+    int usunAdresata();
+    void edytujAdresata();
+    int podajIdWybranegoAdresata();
+    char wybierzOpcjeZMenuEdycja();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 
 };
 #endif
