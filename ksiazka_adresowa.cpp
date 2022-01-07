@@ -97,7 +97,7 @@ void KsiazkaAdresowa::logowanieUzytkownika()
     uzytkownikMenedzer.logowanieUzytkownika();
     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
     {
-        adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI,pobierzIdZalogowanegoUzytkownika());
+        adresatMenedzer = new AdresatMenedzer(nazwaPlikuZAdresatami,pobierzIdZalogowanegoUzytkownika());
     }
 
 }
