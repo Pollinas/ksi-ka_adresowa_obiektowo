@@ -29,6 +29,8 @@ public:
         adresatMenedzer = NULL;
     }
 
+    void wybierzOpcjeZMenuGlownego();
+    void wybierzOpcjeZMenuUzytkownika();
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void logowanieUzytkownika();
