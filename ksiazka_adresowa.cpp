@@ -1,5 +1,82 @@
 #include "ksiazka_adresowa.h"
 
+void KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
+{
+    char wybor;
+
+    system("cls");
+    cout << "    >>> MENU  GLOWNE <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "1. Rejestracja" << endl;
+    cout << "2. Logowanie" << endl;
+    cout << "9. Koniec programu" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Twoj wybor: ";
+
+    wybor = MetodyPomocnicze::wczytajZnak();
+
+    if (wybor == '1')
+        rejestracjaUzytkownika();
+    else if (wybor == '2')
+        logowanieUzytkownika();
+    else if (wybor == '9')
+        exit(0);
+    else
+        cout<< "Podaj poprawny numer dostepnych opcji."<< endl;
+
+}
+
+void KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
+{
+    if (czyUzytkownikJestZalogowany())
+    {
+        char wybor;
+
+        system("cls");
+        cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
+        cout << "---------------------------" << endl;
+        cout << "1. Dodaj adresata" << endl;
+        cout << "2. Wyszukaj po imieniu" << endl;
+        cout << "3. Wyszukaj po nazwisku" << endl;
+        cout << "4. Wyswietl adresatow" << endl;
+        cout << "5. Usun adresata" << endl;
+        cout << "6. Edytuj adresata" << endl;
+        cout << "---------------------------" << endl;
+        cout << "7. Zmien haslo" << endl;
+        cout << "8. Wyloguj sie" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Twoj wybor: ";
+        wybor = MetodyPomocnicze::wczytajZnak();
+
+        if(wybor == '1')
+            dodajAdresata();
+        else if(wybor == '2')
+            wyszukajAdresatowPoImieniu();
+        else if(wybor == '3')
+            wyszukajAdresatowPoNazwisku();
+        else if(wybor == '4')
+            wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
+        else if(wybor == '5')
+            usunAdresata();
+        else if(wybor == '6')
+            edytujAdresata();
+        else if(wybor == '7')
+            zmianaHaslaZalogowanegoUzytkownika();
+        else if(wybor == '8')
+            wylogowanieUzytkownika();
+        else
+            cout<< "Podaj poprawny numer dostepnych opcji."<< endl;
+
+    }
+
+    else
+    {
+        cout << "Aby wyswietlic menu uzytkownika nalezy najpierw sie zalogowac" << endl;
+        system("pause");
+    }
+}
+
+
 
 void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
@@ -39,7 +116,7 @@ void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 
 void KsiazkaAdresowa::dodajAdresata()
 {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
     {
         adresatMenedzer->dodajAdresata();
     }
@@ -52,7 +129,7 @@ void KsiazkaAdresowa::dodajAdresata()
 
 void KsiazkaAdresowa::wyswietlWszystkichAdresatowZalogowanegoUzytkownika()
 {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
     {
         adresatMenedzer->wyswietlWszystkichAdresatow();
     }
@@ -76,7 +153,7 @@ int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
 
 void KsiazkaAdresowa::usunAdresata()
 {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
     {
         adresatMenedzer->usunAdresata();
     }
@@ -89,7 +166,7 @@ void KsiazkaAdresowa::usunAdresata()
 
 void KsiazkaAdresowa::edytujAdresata()
 {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
     {
         adresatMenedzer->edytujAdresata();
     }
@@ -102,7 +179,7 @@ void KsiazkaAdresowa::edytujAdresata()
 
 void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
 {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
     {
         adresatMenedzer->wyszukajAdresatowPoImieniu();
     }
@@ -115,7 +192,7 @@ void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
 
 void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
 {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
     {
         adresatMenedzer->wyszukajAdresatowPoNazwisku();
     }
