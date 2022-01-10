@@ -141,7 +141,32 @@ Adresat PlikZAdresatami:: pobierzDaneAdresata(string daneAdresataOddzielonePiono
 
 int PlikZAdresatami::pobierzIdOstatniegoAdresata()
 {
-    return idOstatniegoAdresata;
+
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    string daneOstaniegoAdresataWPliku = "";
+    fstream plikTekstowy;
+    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+
+    if (czyPlikJestPusty())
+        return idOstatniegoAdresata = 0;
+    else
+    {
+
+        if (plikTekstowy.good())
+        {
+            while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {}
+
+            daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
+
+            plikTekstowy.close();
+
+            if (daneOstaniegoAdresataWPliku != "")
+            {
+                return idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+
+            }
+        }
+    }
 }
 
 void PlikZAdresatami::usunAdresataZPliku(int idUsuwanegoAdresata)
@@ -166,7 +191,7 @@ void PlikZAdresatami::usunAdresataZPliku(int idUsuwanegoAdresata)
             }
             else
             {
-                 if (numerLiniiWPlikuTekstowym == 1 && numerLiniiWPlikuTekstowym != numerUsuwanejLinii)
+                if (numerLiniiWPlikuTekstowym == 1 && numerLiniiWPlikuTekstowym != numerUsuwanejLinii)
                     tymczasowyPlikTekstowy << wczytanaLinia;
                 else if (numerLiniiWPlikuTekstowym == 2 && numerUsuwanejLinii == 1)
                     tymczasowyPlikTekstowy << wczytanaLinia;
