@@ -16,9 +16,17 @@ void KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
     wybor = MetodyPomocnicze::wczytajZnak();
 
     if (wybor == '1')
+    {
         rejestracjaUzytkownika();
+        wybierzOpcjeZMenuGlownego();
+    }
+
     else if (wybor == '2')
+    {
         logowanieUzytkownika();
+        wybierzOpcjeZMenuUzytkownika();
+    }
+
     else if (wybor == '9')
         exit(0);
     else
@@ -49,21 +57,45 @@ void KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
         wybor = MetodyPomocnicze::wczytajZnak();
 
         if(wybor == '1')
+        {
             dodajAdresata();
+            wybierzOpcjeZMenuUzytkownika();
+        }
         else if(wybor == '2')
+        {
             wyszukajAdresatowPoImieniu();
+            wybierzOpcjeZMenuUzytkownika();
+        }
         else if(wybor == '3')
+        {
             wyszukajAdresatowPoNazwisku();
+            wybierzOpcjeZMenuUzytkownika();
+        }
         else if(wybor == '4')
+        {
             wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
+            wybierzOpcjeZMenuUzytkownika();
+        }
         else if(wybor == '5')
+        {
             usunAdresata();
+            wybierzOpcjeZMenuUzytkownika();
+        }
         else if(wybor == '6')
+        {
             edytujAdresata();
+            wybierzOpcjeZMenuUzytkownika();
+        }
         else if(wybor == '7')
+        {
             zmianaHaslaZalogowanegoUzytkownika();
+            wybierzOpcjeZMenuUzytkownika();
+        }
         else if(wybor == '8')
+        {
             wylogowanieUzytkownika();
+            wybierzOpcjeZMenuGlownego();
+        }
         else
             cout<< "Podaj poprawny numer dostepnych opcji."<< endl;
 
