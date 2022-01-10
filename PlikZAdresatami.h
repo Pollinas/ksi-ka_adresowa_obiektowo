@@ -26,7 +26,7 @@ public:
     PlikZAdresatami(string nazwaPlikuZAdresatamiParam)
     : PlikTekstowy(nazwaPlikuZAdresatamiParam), nazwaPlikuZAdresatami(nazwaPlikuZAdresatamiParam)
     {
-        idOstatniegoAdresata =0;
+        idOstatniegoAdresata = 0;
     };
     bool dopiszAdresataDoPliku(Adresat adresat);
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
